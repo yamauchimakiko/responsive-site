@@ -1,0 +1,229 @@
+@import "compass";
+@import url(https://fonts.googleapis.com/css?family=Abel);
+// font-family
+$baseFontFamily :"游ゴシック", YuGothic, "メイリオ",Verdana, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+
+// colors
+$baseColor: #f0f8ff;
+$subColor: #48d1cc;
+$keyColor: #00008b;
+$fontColor: #696969;
+
+/* Base
+------------------------------------------------------------*/
+html{ font-size: 62.5%; }
+
+body{
+  color: $fontColor;
+  font-size: 1.4rem;
+  font-family:$baseFontFamily;
+  line-height:1.6;
+  letter-spacing: 0.1em; 
+  background-color: $baseColor;
+}
+
+a {
+  @include link-colors($keyColor, darken($keyColor, 10%), lighten($keyColor, 5%), darken($keyColor, 10%));
+  text-decoration: none;
+}
+
+/* Align
+------------------------------------------------------------*/
+.text-center {
+  text-align: center;
+}
+
+/* Layout
+------------------------------------------------------------*/
+.block-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Font
+------------------------------------------------------------*/
+.abel {
+  font-family: 'Abel', sans-serif;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+
+/* Header
+------------------------------------------------------------*/
+header {
+  p {
+    font-size: 1.6rem;
+  }
+  img{
+    width: 100%;
+    height: 250px;
+  }
+
+}
+
+/* Contents
+------------------------------------------------------------*/
+// Common Styles
+section {
+  padding: 60px 0;
+  .container {
+    width: 90%;
+    @extend .block-center;
+  }
+  h2 {
+    @extend .abel;
+    font-size: 3.2rem;
+    @extend .uppercase;
+  }
+}
+
+// Skills
+#skills {
+  background-color: $subColor;
+  .container {
+    @include display-flex;
+    justify-content: space-between;
+    @include flex-direction(column);    // スキルボックスを縦に並べる
+  }
+  h2 {
+    color: $baseColor;
+    margin-bottom: 60px;
+  }
+  .skill-box {
+    @include flex(1);
+    margin: 10px 0;                     // 上下にマージン
+    padding: 20px;
+
+    background-color: $baseColor;
+    @include border-radius(4px);
+    @include box-sizing(border-box);
+  }
+  i {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 5px;
+    padding-top: 15px;
+    background-color: $keyColor;
+    font-size: 4.5rem;
+    color: #FFF;
+    text-align: center;
+    @include box-sizing(border-box);
+    @include border-radius(50%);
+    @extend .block-center;
+  }
+  h3 {
+    @extend .abel;
+    @extend .uppercase;
+    color: $keyColor;
+    margin-bottom:10px;
+    font-size: 2.4rem;
+    font-weight: bold;
+  }
+}
+
+// Contact
+#contact {
+  ul {
+    text-align: center;
+    margin-top: 20px;
+    li {
+      display: inline-block;
+      font-size: 2.8rem;
+      text-align: center;
+      margin-right: 20px;
+      @include box-sizing(border-box);
+      vertical-align: top;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    a {
+      display: block;
+      color: #FFF;
+      background-color: $keyColor;
+      @include border-radius(10%);
+    }
+  }
+}
+
+
+/* Footer
+------------------------------------------------------------*/
+footer {
+  background-color: $subColor;
+  padding: 10px 0;
+  text-align: center;
+  color: #FFF;
+}
+
+// desktop
+@media (min-width: 769px) {
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  /* Header
+  ------------------------------------------------------------*/
+  header {
+  p {
+    font-size: 1.6rem;
+    }
+  img{
+    width: 100%;
+    height: 500px;
+    }
+
+  }
+  .button-contact {
+    &:hover, &:active {
+      background-color: $fontColor;
+      color: #FFF;
+    }
+  }
+    // Skills
+  #skills {
+    .container {
+      @include flex-direction(row);     // スキルボックスを横に並べる
+      justify-content: space-between;
+    }
+    .skill-box {
+      margin: 0 10px;                   // 左右にマージン
+    }
+  }
+  // Works
+  #works {
+    .works-box {
+      width: (100% / 3);         // widthを33%にして1列に3つ表示（つまり横に並ぶ）
+      a {
+        .works-box-inner {
+          display: none;
+          .button-readmore {
+            &:hover {
+              background-color: darken($keyColor, 10%);
+            }
+          }
+        }
+        &:hover {
+          .works-box-inner {
+            display: block;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  // Contact
+  #contact {
+    ul {
+      a {
+        &:hover {
+          background-color: darken($keyColor, 10%);
+        }
+      }
+    }
+  }
+}
