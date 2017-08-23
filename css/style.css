@@ -43,6 +43,22 @@ a {
 .uppercase, section h2, #skills h3 {
   text-transform: uppercase; }
 
+/* img
+------------------------------------------------------------ */
+.box {
+  background-image: url("../image/image1.jpg");
+  height: 250px;
+  width: 100%;
+  background-size: cover;
+  background-position: center center; }
+  @media (min-width: 769px) {
+    .box {
+      background-image: url("../image/image1.jpg");
+      height: 500px;
+      width: 100%;
+      background-size: cover;
+      background-position: center center; } }
+
 /* Header
 ------------------------------------------------------------*/
 header p {

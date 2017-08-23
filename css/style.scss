@@ -50,6 +50,29 @@ a {
   text-transform: uppercase;
 }
 
+/* img
+------------------------------------------------------------ */
+.box {
+  background-image: url("../image/image1.jpg");
+  height: 250px;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+  
+  // desktop
+  @media (min-width: 769px) {
+
+  background-image: url("../image/image1.jpg");
+  height: 500px;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+   
+  }
+}
+
+
+
 /* Header
 ------------------------------------------------------------*/
 header {
